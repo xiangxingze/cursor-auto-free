@@ -1,3 +1,91 @@
+# CursorPro Register
+
+这是一个基于 [cursor-auto-free](https://github.com/chengazhen/cursor-auto-free) 项目的 .NET 实现版本，用于自动化 Cursor Pro 账号注册流程。
+
+## 功能特点
+
+- 使用 .NET MAUI 构建的现代化跨平台界面
+- 基于 Playwright 的浏览器自动化
+- 支持临时邮箱验证
+- 自动处理 Turnstile 验证
+- 实时进度和日志显示
+
+## 系统要求
+
+- Windows 10 或更高版本
+- .NET 9.0
+- Chrome 浏览器
+
+## 使用方法
+
+1. 下载并运行程序
+2. 配置以下信息：
+   - 邮箱域名：你的 Cloudflare 域名（例如：example.com）
+   - 临时邮箱：tempmail.plus 的邮箱前缀
+3. 点击"开始"按钮
+4. 等待注册流程自动完成
+
+## 开发环境
+
+- Visual Studio 2022 或更高版本
+- .NET 9.0 SDK
+- MAUI 开发工具
+
+## 项目结构
+
+```
+src/
+├── CursorAutoFree.Core/        # 核心业务逻辑
+├── CursorAutoFree.UI/         # MAUI 用户界面
+└── Infrastructure/           # 基础设施实现（浏览器自动化等）
+```
+
+## 构建说明
+
+1. 克隆仓库：
+```bash
+git clone https://github.com/xiangxingze/CursorProRegister.git
+```
+
+2. 进入项目目录：
+```bash
+cd CursorProRegister
+```
+
+3. 构建项目：
+```bash
+dotnet build
+```
+
+4. 运行项目：
+```bash
+dotnet run --project src/CursorAutoFree.UI
+```
+
+## 使用注意事项
+
+1. 运行环境要求：
+   - 确保已安装 Chrome 浏览器
+   - 稳定的网络连接（建议使用国外节点）
+   - 不要开启全局代理
+
+2. 邮箱配置：
+   - 需要使用 Cloudflare 域名邮箱
+   - 需要配置 tempmail.plus 邮箱
+   - 将 Cloudflare 域名邮箱转发到 tempmail.plus 邮箱
+
+## 免责声明
+
+本工具仅供学习研究使用，请遵守相关服务条款。使用本工具产生的任何后果由使用者自行承担。严禁将本工具用于任何商业用途。
+
+## 致谢
+
+本项目基于 [cursor-auto-free]项目进行 .NET 重构，感谢原作者的开源贡献。
+
+## 许可证
+
+MIT License
+
 # Cursor Pro 自动化工具使用说明
 
 README also avaiable in: [English](./README.EN.md), [Tiếng Việt](./README.VI.md)
@@ -17,7 +105,7 @@ README also avaiable in: [English](./README.EN.md), [Tiếng Việt](./README.VI
 自动注册账号，自动刷新本地token，解放双手。
 
 ## 下载地址
-https://github.com/chengazhen/cursor-auto-free/releases
+https://github.com/xiangxingze/CursorProRegister/releases
 
 
 
@@ -45,10 +133,10 @@ TEMP_MAIL='xxxxxx'   # 临时邮箱，就是你cloudflare 设置的目标位置 
 
 例如，如果你设置：
 ```bash
-DOMAIN='wozhangsan.me'
+DOMAIN='niceme.me'
 TEMP_MAIL='ccxxxxcxx'
 ```
-那么程序将随机生成 `@wozhangsan.me` 后缀作为注册邮箱。
+那么程序将随机生成 `@niceme.me` 后缀作为注册邮箱。
 
 
 ## 运行方法
@@ -78,9 +166,7 @@ chmod +x ./CursorPro
 直接双击运行 `CursorPro.exe`
 
 
-## 如何验证是否有效
-**运行脚本完成之后，重启你的编辑器，你会看到下面图片的账号和你的脚本输出的日志账号一致就搞定了。**
-![image](./screen/截屏2025-01-04%2009.44.48.png)
+
 
 
 ## 使用注意事项
@@ -95,7 +181,7 @@ chmod +x ./CursorPro
   
 ## 赞助更有动力更新
 
-![image](./screen/afdian-[未认证]阿臻.jpg)
+
 
 ## 常见问题解决
 
@@ -112,5 +198,5 @@ chmod +x ./CursorPro
 - **2025-01-10** 修改为使用 cloudflared 域名邮箱
 - **2025-01-11** 增加了可以通过 .env 文件配置 无头模式，增加了代理
 
-灵感来自[gpt-cursor-auto](https://github.com/hmhm2022/gpt-cursor-auto)；自行优化了验证和邮箱自动注册逻辑；解决了无法获取邮箱验证码的问题。
+
 
